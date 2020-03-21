@@ -30,5 +30,8 @@
 *.exe
 *.out
 *.app
+
+# Other
 test
 demo
+/phonetic-search-a/.vscode
