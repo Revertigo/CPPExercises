@@ -121,6 +121,9 @@ TEST_CASE("Test replacement of i and y"){
     CHECK(find(text, "worri") == string("worry"));
 }
 
+TEST_CASE("Test passing nullptr parameters"){
+    CHECK(find(nullptr, nullptr) == string(""));
+}
 
 TEST_CASE("Test replacement of lower-case and upper-case") {
     string text = "Happi xxx yyy";
