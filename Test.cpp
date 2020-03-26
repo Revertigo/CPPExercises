@@ -122,7 +122,8 @@ TEST_CASE("Test replacement of i and y"){
 }
 
 TEST_CASE("Test passing nullptr parameters"){
-    CHECK(find(nullptr, nullptr) == string(""));
+    //CHECK(find(nullptr, nullptr) == string(""));
+    CHECK_THROWS(find(nullptr, nullptr));
 }
 
 TEST_CASE("Test replacement of lower-case and upper-case") {
