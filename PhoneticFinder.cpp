@@ -7,7 +7,7 @@
 
 using namespace std;
 //20% threshold - if we don't have a match of at least 20 precentage, then no string will be returned.
-#define THRESHOLD 20
+#define THRESHOLD 20.0
 
 namespace phonetic
 {
@@ -27,17 +27,18 @@ namespace phonetic
             {
                 float temp_match_percent = 0.0;
                 int count_match = 0;
+                string lc_token(token);//Because we don't want to destroy the original token
                 //lower case token string
-                transform(token.begin(), token.end(), token.begin(), ::tolower);
-                for(int i = 0; i < token.length(); i++)
+                transform(lc_token.begin(), lc_token.end(), lc_token.begin(), ::tolower);
+                for(int i = 0; i < lc_token.length(); i++)
                 {
-                    if(token.at(i) == word.at(i))
+                    if(lc_token.at(i) == word.at(i))
                     {
                         count_match++;
                     }
                 }
 
-                temp_match_percent = ((float)((count_match)) / token.length());
+                temp_match_percent = ((float)((count_match)) / lc_token.length()) * 100.0;
                 if(temp_match_percent > max_match_percent)
                 {
                     target = token;
@@ -46,7 +47,6 @@ namespace phonetic
             }
         }
 
-        cout << "Got in here" << endl;
         if(max_match_percent < THRESHOLD)
         {
             //Let's format an output message !
