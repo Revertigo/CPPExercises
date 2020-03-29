@@ -1,9 +1,9 @@
 #include "doctest.h"
 #include "PhoneticFinder.hpp"
 using namespace phonetic;
+using namespace std;
 
 #include <string>
-using namespace std;
 
 TEST_CASE("Test replacement of v and w"){
     string text = "thanks to stack overflow";
@@ -122,7 +122,6 @@ TEST_CASE("Test replacement of i and y"){
 }
 
 TEST_CASE("Test passing nullptr parameters"){
-    //CHECK(find(nullptr, nullptr) == string(""));
     CHECK_THROWS(find(nullptr, nullptr));
 }
 
